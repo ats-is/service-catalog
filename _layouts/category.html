@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+		{% include head.html %}
+    <body>
+        {% include navigation.html %}
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9">
+        	<div class="layout-content layout-default">
+        		<div class="row">
+          			<div class="col-md-2">
+          				<i class="icon {{page.icon}} icon-5x"></i>
+          			</div>
+          			<div class="col-md-8">
+          				<h2>{{page.title}}</h2>
+        					<p class="text-muted">{{content}}</p>
+          			</div>
+        		</div>
+        		<hr/>
+        		{% assign downcase_title = page.title | downcase %}
+        		{% assign sorted_services = site.categories[downcase_title] | sort:"title" %}
+          	{% for post in sorted_services %}
+          			<h4><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></h4>
+          			<p>{{post.exerpt}}</p>
+                <p><a href="{{site.baseurl}}{{post.url}}">View Site</a></p>
+          		<hr/>
+          	{%endfor%}
+          </div>
+        	</div>
+          <div class="col-md-3 well">
+            <h5>Categories</h5>
+            {% assign sorted_categories = site.categories['category'] | sort:"title" %}
+            <ul class="nav nav-pills nav-stacked">
+              {% for post in sorted_categories %}
+              <li><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
+              {%endfor%}
+            </ul>
+          </div>
+        </div>
+        </div>
+        <script type="text/javascript" src="//az452370.vo.msecnd.net/styleguide/js/latest/ats.min.js"></script>
+    </body>
+</html>
