@@ -1,4 +1,4 @@
 name: ATS IT Service Catalog
 markdown: redcarpet
 pygments: true
-baseurl: /JekyllServiceCatalog
+baseurl: /service-catalog
